@@ -114,38 +114,38 @@ namespace puzzler
     }
 
     /*unsigned Matches(const std::string data, unsigned offset, const std::string pattern) const
-    {
+      {
       unsigned pos=offset;
       unsigned p=0;
       while(p<pattern.size()){
-	if(pos>=data.size())
-	  return 0;
+      if(pos>=data.size())
+      return 0;
 
-	switch(pattern[p]){
-	case 'A':
-	case 'C':
-	case 'T':
-	case 'G':
-	  if(data[pos]!=pattern[p])
-	    return 0;
-	  p++;
-	  pos++;
-	  break;
-	case 'a':
-	case 'c':
-	case 't':
-	case 'g':
-	  if(data[pos]==toupper(pattern[p])){
-	    p++;
-	    pos++;
-	  }else{
-	    pos++;
-	  }
-	  break;
-	}
+      switch(pattern[p]){
+      case 'A':
+      case 'C':
+      case 'T':
+      case 'G':
+      if(data[pos]!=pattern[p])
+      return 0;
+      p++;
+      pos++;
+      break;
+      case 'a':
+      case 'c':
+      case 't':
+      case 'g':
+      if(data[pos]==toupper(pattern[p])){
+      p++;
+      pos++;
+      }else{
+      pos++;
+      }
+      break;
+      }
       }
       return pos-offset;
-    }*/
+      }*/
 
     unsigned Matches(const std::string data, unsigned offset, const std::string pattern) const
     {
@@ -157,26 +157,26 @@ namespace puzzler
         if(pos>=data.size())
           return 0;
 
-         //fprintf(stderr, " state=%u, off=%u, seen=%u, d=%c, p=%c", p, pos, seen, data[pos], pattern[p]);
-         if(pattern.at(p)=='.'){
-           pos++;
-           p++;
-           seen=0;
-           //fprintf(stderr, " : match any\n");
-         }else if(data.at(pos)==pattern.at(p)){
-           seen++;
-           pos++;
-           //fprintf(stderr, " : match exact %s\n", seen==1?"first":"follow");
-         }else{
-            if(seen>0){
-              p++;
-              seen=0;
-             // fprintf(stderr, " : move next\n");
-            }else{
-              //fprintf(stderr, "  Fail\n");
-              return 0;
-            }
-          }
+	//fprintf(stderr, " state=%u, off=%u, seen=%u, d=%c, p=%c", p, pos, seen, data[pos], pattern[p]);
+	if(pattern.at(p)=='.'){
+	  pos++;
+	  p++;
+	  seen=0;
+	  //fprintf(stderr, " : match any\n");
+	}else if(data.at(pos)==pattern.at(p)){
+	  seen++;
+	  pos++;
+	  //fprintf(stderr, " : match exact %s\n", seen==1?"first":"follow");
+	}else{
+	  if(seen>0){
+	    p++;
+	    seen=0;
+	    // fprintf(stderr, " : move next\n");
+	  }else{
+	    //fprintf(stderr, "  Fail\n");
+	    return 0;
+	  }
+	}
       };
       return pos-offset;
     }
@@ -204,7 +204,7 @@ namespace puzzler
           unsigned len=Matches(data, i, pInput->patterns[p]);
           if(len>0){
             log->Log(Log_Debug,[&](std::ostream &dst){
-              dst<<"  Found "<<pInput->patterns.at(p)<<" at offset "<<i<<", match="<<data.substr(i, len);
+		dst<<"  Found "<<pInput->patterns.at(p)<<" at offset "<<i<<", match="<<data.substr(i, len);
               });
             histogram[p]++;
             i += len-1;
@@ -217,8 +217,8 @@ namespace puzzler
 
       for(unsigned i=0; i<histogram.size(); i++){
         log->Log(Log_Debug, [&](std::ostream &dst){
-          dst<<pInput->patterns[i].c_str()<<" : "<<histogram[i];
-        });
+	    dst<<pInput->patterns[i].c_str()<<" : "<<histogram[i];
+	  });
       }
 
 

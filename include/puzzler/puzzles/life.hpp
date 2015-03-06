@@ -128,14 +128,14 @@ namespace puzzler
       std::vector<bool> state=pInput->state;
 
       log->Log(Log_Debug, [&](std::ostream &dst){
-        dst<<"\n";
-        for(unsigned y=0; y<n; y++){
-          for(unsigned x=0; x<n; x++){
-            dst<<(state.at(y*n+x)?'x':' ');
-          }
-          dst<<"\n";
-        }
-      });
+	  dst<<"\n";
+	  for(unsigned y=0; y<n; y++){
+	    for(unsigned x=0; x<n; x++){
+	      dst<<(state.at(y*n+x)?'x':' ');
+	    }
+	    dst<<"\n";
+	  }
+	});
 
       for(unsigned i=0; i<pInput->steps; i++){
         log->LogVerbose("Starting iteration %d of %d\n", i, pInput->steps);
@@ -153,14 +153,14 @@ namespace puzzler
         // The weird form of log is so that there is little overhead
         // if logging is disabled
         log->Log(Log_Debug, [&](std::ostream &dst){
-          dst<<"\n";
-          for(unsigned y=0; y<n; y++){
-            for(unsigned x=0; x<n; x++){
-              dst<<(state[y*n+x]?'x':' ');
-            }
-            dst<<"\n";
-          }
-        });
+	    dst<<"\n";
+	    for(unsigned y=0; y<n; y++){
+	      for(unsigned x=0; x<n; x++){
+		dst<<(state[y*n+x]?'x':' ');
+	      }
+	      dst<<"\n";
+	    }
+	  });
       }
 
       log->LogVerbose("Finished steps");

@@ -50,11 +50,11 @@ namespace puzzler
 
 
       if(nandGateCount!=nandGateInputs.size())
-        throw std::runtime_error("CircuitSimInput::Persist - nandGateCount is inconsistent.");
+	throw std::runtime_error("CircuitSimInput::Persist - nandGateCount is inconsistent.");
       if(flipFlopCount!=flipFlopInputs.size())
-        throw std::runtime_error("CircuitSimInput::Persist - flipFlopCount is inconsistent.");
+	throw std::runtime_error("CircuitSimInput::Persist - flipFlopCount is inconsistent.");
       if(inputState.size()!=flipFlopInputs.size())
-        throw std::runtime_error("CircuitSimInput::Persist - state size is inconsistent.");
+	throw std::runtime_error("CircuitSimInput::Persist - state size is inconsistent.");
     }
 
 

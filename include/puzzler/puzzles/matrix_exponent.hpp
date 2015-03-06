@@ -127,10 +127,10 @@ namespace puzzler
     }
 
     void ReferenceExecute(
-      ILog *log,
-      const MatrixExponentInput *pInput,
-      MatrixExponentOutput *pOutput
-      ) const override final
+			  ILog *log,
+			  const MatrixExponentInput *pInput,
+			  MatrixExponentOutput *pOutput
+			  ) const override final
     {
 
       std::vector<uint32_t> hash(pInput->steps);
