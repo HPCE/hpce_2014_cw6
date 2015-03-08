@@ -37,7 +37,6 @@ namespace puzzler
       if(level <= m_logLevel){
         va_list args;
         va_start(args,str);
-        fprintf(stderr, "pre vLog\n");
         vLog(level, str, args);
         va_end(args);
       }
@@ -53,9 +52,7 @@ namespace puzzler
     {
       if(level <= m_logLevel){
         std::stringstream tmp;
-        fprintf(stderr, "Pre log\n");
         f(tmp);
-        fprintf(stderr, "Pre actual log\n");
         Log(level, tmp.str().c_str());
       }
     }
