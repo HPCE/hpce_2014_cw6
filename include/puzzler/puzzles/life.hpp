@@ -124,7 +124,7 @@ namespace puzzler
     {
       log->LogVerbose("About to start running iterations (total = %d)", pInput->steps);
 
-      int n=pInput->n;
+      unsigned n=pInput->n;
       std::vector<bool> state=pInput->state;
 
       log->Log(Log_Debug, [&](std::ostream &dst){
