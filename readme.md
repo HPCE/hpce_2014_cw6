@@ -1,8 +1,10 @@
 HPCE 2014 CW6
 =============
 
-Issued: Sun 8th March
-Due: Sun 22nd March, 23:59
+- Issued: Sun 8th March
+- Due: Sun 22nd March, 23:59
+
+(First DoC exam open to EEE/EIE/MSc is 24th March, AFAICT)
 
 Specification
 -------------
