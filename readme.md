@@ -6,6 +6,8 @@ HPCE 2014 CW6
 
 (First DoC exam open to EEE/EIE/MSc is 24th March, AFAICT)
 
+(Just realised I haven't made the private repositories yet. To come...)
+
 Specification
 -------------
 
