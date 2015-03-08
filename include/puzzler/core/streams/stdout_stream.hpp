@@ -25,7 +25,8 @@ namespace puzzler{
     {
       int sent=write(STDOUT_FILENO, pData, cbData);
       if(sent!=(int)cbData)
-	throw std::runtime_error("StdoutStream::Send - Not all data was sent.");
+        throw std::runtime_error("StdoutStream::Send - Not all data was sent.");
+      m_offset+=cbData;
     }
 
     virtual void Recv(size_t , void *)

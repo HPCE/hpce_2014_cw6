@@ -30,7 +30,8 @@ namespace puzzler{
     {
       int got=read(STDIN_FILENO, pData, cbData);
       if(got!=(int)cbData)
-	throw std::runtime_error("StdoutStream::Recv - Not all data was received.");
+        throw std::runtime_error("StdoutStream::Recv - Not all data was received.");
+      m_offset+=cbData;
     }
 
 

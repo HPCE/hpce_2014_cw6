@@ -70,7 +70,9 @@ namespace puzzler
     virtual bool Equals(const Output *output) const override
     {
       auto pOutput=As<OptionExplicitOutput>(output);
-      return std::abs((value-pOutput->value)/value) < sqrt(steps)*1e-8;
+      double tol=sqrt(steps)*1e-8;
+      fprintf(stderr, "value = %lg, alt=%lg, diff=%lg, tol=%lg\n", value, pOutput->value, value-pOutput->value, tol);
+      return std::abs((value-pOutput->value)/value) < tol;
     }
 
   };
@@ -130,6 +132,7 @@ namespace puzzler
         state=tmp;
       }
 
+      pOutput->steps=n;
       pOutput->value=state[n];
 
       log->LogVerbose("Priced n=%d, S0=%lg, K=%lg, r=%lg, sigma=%lg, BU=%lg : value=%lg", n, pInput->S0, pInput->K, pInput->r, pInput->sigma, pInput->BU, pOutput->value);
