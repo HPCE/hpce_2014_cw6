@@ -1,6 +1,9 @@
 HPCE 2014 CW6
 =============
 
+Issued: Sun 8th March
+Due: Sun 22nd March, 23:59
+
 Specification
 -------------
 
@@ -57,6 +60,13 @@ in terms of what you should focus on, or how
 _exactly_ it will be measured. Part of the assesment
 is in seeing whether you can work out what can be
 accelerated, and where you should spend your time.
+And in reacting to externally evolving specs and
+code - the Friday 13th comment is true, though the
+change is minor (there aren't another five problems),
+additive (all work done this week is needed and
+evaluated for the final assesment), and has a default
+fallback (a git pull will bring any submission back
+into correcness).
 
 The allocation of marks I'm using is as before:
 
