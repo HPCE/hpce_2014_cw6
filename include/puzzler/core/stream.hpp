@@ -1,6 +1,10 @@
 #ifndef  puzzler_core_stream_hpp
 #define  puzzler_core_stream_hpp
 
+#if defined(_WIN32) || defined(_WIN64)
+#define NOMINMAX
+#endif
+
 #include <cstdio>
 #include <cstdarg>
 #include <cstdint>
