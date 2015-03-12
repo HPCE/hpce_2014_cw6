@@ -8,6 +8,6 @@ puzzles.o : *.hpp
 
 ../lib/libpuzzler.a : puzzles.o
 	-mkdir -p ../lib
-	ar crf ../lib/libpuzzler.a puzzles.o
+	ar cr ../lib/libpuzzler.a puzzles.o
 
 all : ../lib/libpuzzler.a

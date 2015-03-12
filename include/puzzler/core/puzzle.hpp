@@ -14,7 +14,7 @@ namespace puzzler
   public:
 
     class Input
-      : virtual Persistable
+      : public virtual Persistable
     {
     private:
       std::string m_format;
@@ -53,7 +53,7 @@ namespace puzzler
     };
 
     class Output
-      : virtual Persistable
+      : public virtual Persistable
     {
     private:
       std::string m_format;
