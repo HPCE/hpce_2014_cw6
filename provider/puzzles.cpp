@@ -6,6 +6,7 @@
 #include "user_matrix_exponent.hpp"
 #include "user_option_explicit.hpp"
 #include "user_life.hpp"
+#include "user_median_bits.hpp"
 
 void puzzler::PuzzleRegistrar::UserRegisterPuzzles()
 {
@@ -14,6 +15,7 @@ void puzzler::PuzzleRegistrar::UserRegisterPuzzles()
   Register(std::make_shared<MatrixExponentProvider>());
   Register(std::make_shared<OptionExplicitProvider>());
   Register(std::make_shared<LifeProvider>());
+  Register(std::make_shared<MedianBitsProvider>());
 }
 
 
