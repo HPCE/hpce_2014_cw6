@@ -23,10 +23,14 @@ namespace puzzler{
 
     virtual void Send(size_t cbData, const void *pData)
     {
-      int sent=write(STDOUT_FILENO, pData, cbData);
-      if(sent!=(int)cbData)
-        throw std::runtime_error("StdoutStream::Send - Not all data was sent.");
-      m_offset+=cbData;
+      do{
+        int sent=write(STDOUT_FILENO, pData, cbData);
+        if(sent<=0)
+          throw std::runtime_error("StdoutStream::Send - Not all data was sent.");
+        m_offset+=sent;
+        cbData-=sent;
+        pData=sent+(uint8_t*)pData;
+      }while(cbData>0);
     }
 
     virtual void Recv(size_t , void *)

@@ -28,10 +28,15 @@ namespace puzzler{
 
     virtual void Recv(size_t cbData, void *pData)
     {
-      int got=read(STDIN_FILENO, pData, cbData);
-      if(got!=(int)cbData)
-        throw std::runtime_error("StdoutStream::Recv - Not all data was received.");
-      m_offset+=cbData;
+      int got;
+      do{
+        got=read(STDIN_FILENO, pData, cbData);
+        if(got<=0)
+          throw std::runtime_error("StdoutStream::Recv - Not all data was received.");
+        m_offset+=got;
+        cbData-=got;
+        pData=got+(uint8_t*)pData;
+      }while(cbData>0);
     }
 
 
