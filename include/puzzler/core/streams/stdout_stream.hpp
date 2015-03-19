@@ -25,8 +25,10 @@ namespace puzzler{
     {
       do{
         int sent=write(STDOUT_FILENO, pData, cbData);
-        if(sent<=0)
-          throw std::runtime_error("StdoutStream::Send - Not all data was sent.");
+        if(sent==0)
+          throw std::runtime_error("StdoutStream::Send - No data was written.");
+        if(sent<0)
+          throw std::runtime_error("StdoutStream::Send - Error while writing");
         m_offset+=sent;
         cbData-=sent;
         pData=sent+(uint8_t*)pData;
